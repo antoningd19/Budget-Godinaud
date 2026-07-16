@@ -2,7 +2,7 @@
 
 **🔗 Accéder à l'app : [antoningd19.github.io/budget-tracker](https://antoningd19.github.io/budget-tracker/)**
 
-PWA de suivi de budget mensuel personnel — revenus, dépenses par catégorie, dépenses plaisir avec suivi détaillé (Alimentation, Déplacement, Plaisir), répartition et vue d'évolution mensuelle. Page HTML autonome, sans dépendance ni build.
+PWA de suivi de budget mensuel personnel - revenus, dépenses par catégorie, dépenses plaisir avec suivi détaillé (Alimentation, Déplacement, Plaisir), répartition et vue d'évolution mensuelle. Page HTML autonome, sans dépendance ni build.
 
 ## Fonctionnalités
 
