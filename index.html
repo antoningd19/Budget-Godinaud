@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Comptes">
-<meta name="theme-color" content="#0071E3">
+<meta name="theme-color" content="#4353ED">
 </head>
 <body>
 <style>
@@ -18,24 +18,29 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #F5F5F7;
+  background: #4353ED;
 }
 
 .budget-root {
-  --bg1: #F5F5F7;
-  --bg2: #FFFFFF;
-  --glass: rgba(255,255,255,0.55);
-  --glass-strong: rgba(255,255,255,0.75);
-  --glass-border: rgba(0,0,0,0.08);
-  --text: #1D1D1F;
-  --text-soft: #6E6E73;
-  --text-faint: #737376;
-  --blue: #0071E3;
-  --green: #34C759;
-  --red: #FF3B30;
-  --switch-off: #E9E9EB;
+  --bg1: #B4BBEF;
+  --bg2: #FEFFFA;
+  --periwinkle: #B4BBEF;
+  --glass: rgba(67,83,237,0.85);
+  --glass-strong: rgba(67,83,237,0.92);
+  --glass-hi: rgba(255,255,255,0.14);
+  --glass-border: rgba(255,255,255,0.32);
+  --text: #FFFFFF;
+  --text-soft: rgba(255,255,255,0.82);
+  --text-faint: rgba(255,255,255,0.6);
+  --text-on-light: #12142B;
+  --btn-dark: #12142B;
+  --blue: #4353ED;
+  --blue-deep: #3140ED;
+  --green: #B9FBC0;
+  --red: #FFC9C0;
+  --switch-off: rgba(255,255,255,0.3);
 
-  --c-invest: #0071E3;
+  --c-invest: var(--blue);
   --c-abo: #AF52DE;
   --c-appart: #FF9F0A;
   --c-alim: #FF375F;
@@ -45,16 +50,13 @@ html, body {
   --c-imprevus: #8E8E93;
   --c-sport: #00C7BE;
 
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Inter, sans-serif;
+  font-family: ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
   color: var(--text);
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
   padding: max(32px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(70px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
-  background:
-    radial-gradient(circle at 12% -5%, rgba(0,113,227,0.10), transparent 42%),
-    radial-gradient(circle at 92% 10%, rgba(175,82,222,0.09), transparent 40%),
-    linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 40%);
+  background: linear-gradient(165deg, var(--periwinkle) 0%, var(--blue) 45%, var(--blue-deep) 62%, var(--bg2) 100%);
   background-attachment: fixed;
 }
 
@@ -75,15 +77,16 @@ html, body {
   border-radius: 12px;
   object-fit: cover;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 14px rgba(43,43,90,0.12);
   background: #fff;
   flex-shrink: 0;
 }
 .budget-root .brand {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
-  color: var(--text-soft);
+  color: var(--text);
+  text-shadow: 0 1px 4px rgba(10,8,40,0.4);
 }
 .budget-root .security-badge {
   display: inline-flex;
@@ -111,7 +114,7 @@ html, body {
   border-radius: 28px;
   padding: 26px 26px 22px;
   margin-bottom: 16px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+  box-shadow: 0 24px 50px rgba(20,15,80,0.16), inset 0 1px 0 rgba(255,255,255,0.6);
   overflow: hidden;
 }
 .budget-root .hero::before {
@@ -119,7 +122,7 @@ html, body {
   position: absolute;
   top: -50%; right: -15%;
   width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(0,113,227,0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.22), transparent 70%);
   pointer-events: none;
 }
 
@@ -133,7 +136,7 @@ html, body {
   z-index: 1;
 }
 .budget-root .month-nav button.arrow {
-  background: rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.16);
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   width: 30px;
@@ -149,15 +152,15 @@ html, body {
   font-family: inherit;
   transition: background-color .18s ease, transform .18s ease;
 }
-.budget-root .month-nav button.arrow:hover { background: rgba(0,0,0,0.08); transform: scale(1.1); }
+.budget-root .month-nav button.arrow:hover { background: rgba(255,255,255,0.26); transform: scale(1.1); }
 .budget-root .month-nav button.arrow:active { transform: scale(0.95); }
 
 .budget-root .month-title {
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text-soft);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--text);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-align: center;
   min-width: 150px;
 }
@@ -169,14 +172,17 @@ html, body {
   margin-bottom: 22px;
 }
 .budget-root .balance-label {
-  font-size: 12.5px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text-soft);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .budget-root .balance-value {
   font-size: 48px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
   color: var(--text);
   display: inline-block;
@@ -208,7 +214,7 @@ html, body {
   z-index: 1;
 }
 .budget-root .mini-stat {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.14);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 12px 14px;
@@ -223,8 +229,9 @@ html, body {
 }
 .budget-root .mini-stat .value {
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
+  color: var(--text);
 }
 .budget-root .mini-stat.revenu .value { color: var(--green); }
 .budget-root .mini-stat.depense .value { color: var(--red); }
@@ -235,9 +242,9 @@ html, body {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(24px) saturate(170%);
   -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border-radius: 22px;
+  border-radius: 24px;
   margin-bottom: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 12px 30px rgba(43,43,90,0.07);
   overflow: hidden;
 }
 .budget-root .detail-header {
@@ -250,13 +257,15 @@ html, body {
   user-select: none;
   transition: background-color .18s ease;
 }
-.budget-root .detail-header:hover { background: rgba(0,0,0,0.025); }
+.budget-root .detail-header:hover { background: rgba(255,255,255,0.08); }
 .budget-root .detail-header .phl {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 .budget-root .detail-header .phl .ico {
   width: 30px; height: 30px;
@@ -308,7 +317,7 @@ html, body {
 .budget-root .detail-progress-track {
   height: 10px;
   border-radius: 6px;
-  background: rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.16);
   overflow: hidden;
 }
 .budget-root .detail-progress-fill {
@@ -330,7 +339,7 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
   transition: opacity .2s cubic-bezier(0.25, 1, 0.5, 1), transform .2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .budget-root .detail-item:last-of-type { border-bottom: none; }
@@ -361,7 +370,7 @@ html, body {
   font-size: 9.5px;
   font-weight: 700;
   color: #fff;
-  background: var(--text-soft);
+  background: var(--btn-dark);
   border: none;
   border-radius: 20px;
   padding: 3px 8px;
@@ -389,7 +398,8 @@ html, body {
   display: flex;
   gap: 16px;
   font-size: 10.5px;
-  color: var(--text-faint);
+  color: var(--text-soft);
+  text-shadow: 0 1px 3px rgba(10,8,40,0.4);
   margin: 0 0 16px 4px;
   flex-wrap: wrap;
   align-items: center;
@@ -414,14 +424,16 @@ html, body {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(24px) saturate(170%);
   -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border-radius: 22px;
+  border-radius: 24px;
   padding: 18px 18px 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 12px 30px rgba(43,43,90,0.07);
 }
 
 .budget-root .panel-title {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -442,7 +454,7 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
   transition: opacity .2s cubic-bezier(0.25, 1, 0.5, 1), transform .2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .budget-root .row:last-of-type { border-bottom: none; }
@@ -451,7 +463,7 @@ html, body {
 .budget-root .row.dragging {
   position: relative;
   z-index: 5;
-  background: var(--bg2);
+  background: rgba(15,12,45,0.92);
   border-radius: 10px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.16);
 }
@@ -465,7 +477,7 @@ html, body {
   justify-content: center;
   font-size: 14px;
   flex-shrink: 0;
-  background: rgba(0,0,0,0.045);
+  background: rgba(255,255,255,0.15);
 }
 
 /* iOS-style toggle switch (replaces the old status dot) */
@@ -516,8 +528,8 @@ html, body {
 }
 .budget-root .row .label:focus-visible {
   outline: none;
-  background: rgba(0,113,227,0.08);
-  box-shadow: 0 0 0 1.5px var(--blue);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9);
   text-overflow: initial;
 }
 .budget-root .row .cat-tag {
@@ -543,7 +555,7 @@ html, body {
 }
 .budget-root .row .cat-tag:hover { transform: scale(1.03); }
 .budget-root .row .cat-tag:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--blue); }
-.budget-root .row .cat-tag option { color: var(--text); background: #fff; font-weight: 500; }
+.budget-root .row .cat-tag option { color: var(--text-on-light); background: #fff; font-weight: 500; }
 
 .budget-root .row .amount {
   font-size: 16px;
@@ -561,8 +573,8 @@ html, body {
 }
 .budget-root .row .amount:focus-visible {
   outline: none;
-  background: rgba(0,113,227,0.08);
-  box-shadow: 0 0 0 1.5px var(--blue);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9);
 }
 
 .budget-root .row .del-btn {
@@ -587,13 +599,13 @@ html, body {
   gap: 6px;
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px dashed rgba(0,0,0,0.1);
+  border-top: 1px dashed rgba(255,255,255,0.22);
   flex-wrap: wrap;
 }
 .budget-root .add-row input[type=text] {
   flex: 1;
   min-width: 80px;
-  background: rgba(0,0,0,0.03);
+  background: rgba(255,255,255,0.12);
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   padding: 7px 9px;
@@ -604,7 +616,7 @@ html, body {
 .budget-root .add-row input[type=text]::placeholder { color: var(--text-faint); }
 .budget-root .add-row input[type=number] {
   width: 66px;
-  background: rgba(0,0,0,0.03);
+  background: rgba(255,255,255,0.12);
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   padding: 7px 8px;
@@ -613,7 +625,7 @@ html, body {
   color: var(--text);
 }
 .budget-root .add-row input[type=date] {
-  background: rgba(0,0,0,0.03);
+  background: rgba(255,255,255,0.12);
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   padding: 7px 8px;
@@ -622,7 +634,7 @@ html, body {
   color: var(--text);
 }
 .budget-root .add-row select {
-  background: rgba(0,0,0,0.03);
+  background: rgba(255,255,255,0.12);
   border: 1px solid var(--glass-border);
   border-radius: 8px;
   padding: 7px 4px;
@@ -631,7 +643,7 @@ html, body {
   color: var(--text);
   max-width: 104px;
 }
-.budget-root .add-row select option { background: #fff; color: var(--text); }
+.budget-root .add-row select option { background: #fff; color: var(--text-on-light); }
 .budget-root .add-row input[type=text],
 .budget-root .add-row input[type=number],
 .budget-root .add-row input[type=date],
@@ -643,9 +655,9 @@ html, body {
 .budget-root .add-row input[type=date]:focus-visible,
 .budget-root .add-row select:focus-visible {
   outline: none;
-  border-color: var(--blue);
-  background: rgba(0,113,227,0.05);
-  box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+  border-color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.16);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.25);
 }
 .budget-root .add-row label.rec-check {
   display: flex;
@@ -656,12 +668,13 @@ html, body {
   white-space: nowrap;
 }
 .budget-root .add-row button.add-btn {
-  background: var(--text);
+  background: var(--btn-dark);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 0 12px;
+  border-radius: 100px;
+  padding: 0 14px;
   font-size: 12.5px;
+  font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   transition: transform .15s ease, opacity .15s ease;
@@ -680,7 +693,7 @@ html, body {
   margin-bottom: 16px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.05);
 }
-.budget-root .ratio-title { font-size: 15px; font-weight: 600; margin-bottom: 14px; text-align: center; }
+.budget-root .ratio-title { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; color: var(--text); margin-bottom: 14px; text-align: center; }
 
 .budget-root .ratio-bar-row {
   display: flex;
@@ -696,7 +709,7 @@ html, body {
 }
 .budget-root .ratio-track {
   flex: 1;
-  background: rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.16);
   border-radius: 5px;
   height: 9px;
   overflow: hidden;
@@ -740,20 +753,20 @@ html, body {
 .budget-root .preview-card .ptext { font-size: 12.5px; color: var(--text-soft); }
 .budget-root .preview-card .ptext b { color: var(--text); font-weight: 600; }
 .budget-root .newmonth-btn {
-  background: var(--blue);
+  background: var(--btn-dark);
   color: #fff;
   border: none;
   border-radius: 100px;
   padding: 9px 16px;
   font-size: 12.5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(0,113,227,0.35);
+  box-shadow: 0 4px 14px rgba(9,13,30,0.4);
   transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
-.budget-root .newmonth-btn:hover { background: #1a86f5; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,113,227,0.45); }
+.budget-root .newmonth-btn:hover { background: #22263f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(9,13,30,0.5); }
 .budget-root .newmonth-btn:active { transform: translateY(0); }
 
 /* ---------- evolution CTA ---------- */
@@ -774,7 +787,7 @@ html, body {
   font-family: inherit;
   transition: background-color .18s ease, transform .15s ease;
 }
-.budget-root .evolution-cta:hover { background: rgba(255,255,255,0.7); }
+.budget-root .evolution-cta:hover { background: rgba(90,104,240,0.92); }
 .budget-root .evolution-cta:active { transform: scale(0.98); }
 
 .budget-root .evolution-panel {
@@ -834,13 +847,13 @@ html, body {
   font-size: 11px;
   color: var(--text-soft);
   padding-top: 8px;
-  border-top: 1px dashed rgba(0,0,0,0.08);
+  border-top: 1px dashed rgba(255,255,255,0.2);
 }
 .budget-root .evolution-cats b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* ---------- footer / mobile ---------- */
 .budget-root .footer-card {
-  background: linear-gradient(120deg, rgba(0,113,227,0.08), rgba(175,82,222,0.06));
+  background: linear-gradient(120deg, rgba(67,83,237,0.85), rgba(150,82,222,0.78));
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
@@ -856,7 +869,7 @@ html, body {
 .budget-root .footer-card .ficon {
   width: 38px; height: 38px;
   border-radius: 11px;
-  background: rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.16);
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
   flex-shrink: 0;
@@ -866,7 +879,7 @@ html, body {
 .budget-root .save-pill {
   font-size: 11px;
   color: var(--text-soft);
-  background: rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.14);
   border: 1px solid var(--glass-border);
   border-radius: 100px;
   padding: 6px 12px;
@@ -1042,7 +1055,7 @@ html, body {
 
     <div class="preview-card">
       <div class="ptext" id="previewText">Aperçu du mois prochain…</div>
-      <button class="newmonth-btn" id="newMonthBtn">Créer le mois suivant</button>
+      <button class="newmonth-btn" id="newMonthBtn">Créer le mois suivant <span aria-hidden="true">→</span></button>
     </div>
 
     <button class="evolution-cta" id="evolutionCta">📊 Voir l'évolution des derniers mois</button>
