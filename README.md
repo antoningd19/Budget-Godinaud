@@ -18,4 +18,4 @@ Ouvrir le lien ci-dessus dans un navigateur, ou installer sur l'écran d'accueil
 
 Pour lancer en local : ouvrir `index.html` directement dans un navigateur.
 
-Les données sont sauvegardées dans le `localStorage` du navigateur — propres à chaque appareil/navigateur, rien n'est envoyé à un serveur.
+Les données sont sauvegardées dans le `localStorage` du navigateur - propres à chaque appareil/navigateur, rien n'est envoyé à un serveur.
